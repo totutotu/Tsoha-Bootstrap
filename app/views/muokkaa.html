@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<form> 
+		<div class="form-group">
+		<label for="etunimi">Etunimi</label>
+		<input type="etunimi" class="form-control" placeHolder="Etunimi">
+	</div>
+		<div class="form-group">
+		<label for="sukunimi">Sukunimi</label>
+		<input type="sukunimi" class="form-control" placeHolder="Sukunimi">
+	</div>
+	<div class="form-group">
+		<label for="email">Email</label>
+		<input type="email" class="form-control" placeHolder="Email">
+	</div>
+	<div class="form-group">
+		<label for="ika">Ikä</label>
+		<input type="ika" class="form-control" placeHolder="Ikä">
+	</div>
+	<div class="form-group">
+		<label for="sukupuoli">Sukupuoli</label>
+		<label class="radio-inline">
+		  <input type="radio" name="sukupuoli" id="sukupuoli" value="option"> Mies
+		</label>
+		<label class="radio-inline">
+		  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Nainen
+		</label>
+		<label class="radio-inline">
+		  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> Muu
+		</label>
+	</div>
+
+	<div class="form-group">
+	<label>Esittelyteksti</label>
+
+		<textarea class="form-control" rows="5"></textarea>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Tallenna</button>
+
+</form>
+
+
+
+{% endblock %}
