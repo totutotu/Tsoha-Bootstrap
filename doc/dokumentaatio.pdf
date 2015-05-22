@@ -1,31 +1,59 @@
 ﻿
+Ystävänvälityspalvelu By Tuomo Torppa
 
 
+Käyttäjä
 
+kayttajatunnus: merkkijono, max 20 merkkiä, sisäänkirjautumiseen käytettävä uniikki tunnus
+salasana: merkkijono, max 20 merkkiä, salasana
 
+Tiedot käyttäjistä ja niiden salasanoista
 
+Viesti
 
+id
+aihe: merkkijono, max 50 merkkiä, viestin otsikko
+sisalto: merkkijono, max 500 merkkiä, viestin sisältö
+lähetetty: aikaleima
+lähettäjä: kayttaja
+vastaanottaja: kayttaja
 
+Viestejä, joita käyttäjät voivat lähettää toisilleen
 
+Profiili:
 
+kayttajatunnus: kayttaja
+ika: kokonaisluku
+etunimi:  merkkijono, max 20 merkkiä
+sukunimi; merkkijono, max 20 merkkiä
+sukupuoli: merkkijono, max 20 merkkiä
+esittelyteksti: merkkijono, max 500 merkkiä
+hakee: merkkijono, max 20 merkkiä, mitä sivustolta hakee
+status: merkkijono, max 20 merkkiä, oma seurustelutilanne
 
+Käyttäjän julkinen profiili, jota voi kuka tahansa tarkastella. Kaikilla yksi.
 
+yksprofiili
 
+id
+kinostukset: merkkijono, mex 50 merkkiä, tarkempia kiinnostuksenkohteita
+puh: kokonaisluku, puhelinnumero
+email: merkkijono, max 30 merkkiä, sähköpostiopsoite
+esittely2: merkkijono, max 2000 merkkiä, lisäesittely
 
+Yksityinen profiilisivu, jonka käyttäjä voi jakaa haluamiensa käyttäjien kanssa. Voi olla useampia, esim. eri tarkoituksiin.
 
+yhteisösivu
 
+yllapitaja: kayttaja, sivuston luoja
+nimi: merkkijono, max 20 merkkiä
 
+Yhteisöllinen sivu, johon voi liittyä useita käyttäjiä.
 
+jasenet
 
+kayttaja: kayttaja, yhteison kayttajat
+yhteisosivu: yhteisosivu, mihin sivuun kayttaja kuuluu
 
-
-
-
-Käyttäjä: Taulu sisältää tiedot käyttäjätunnuksista ja salasanoista
-Profiili: Julkinen profiili käyttäjästä
-Yksprofiili: Yksityinen profiili, joita käyttäjä voi halutessaan jakaa muille käyttäjille ja joita voi luoda useita (eri tarkoituksiin, esim ystävän hakemiseen ja pelkkään dippiin erilaiset sivut), sisältää lisää tarkempaa tietoa kuin pelkkä profiilisivu
-Viesti: käyttäjältä toiselle lähetettävä viesti, johon liittyy lähttäjä ja saaja
-Yhteisosivu: Kayttajan luoma yhteisosivu, jossa yksi käyttäjä toimii ylläpitäjänä ja johon liittyy jasenet-aputaulun kautta tavoitettavia muita
-
- jäseniä.
+Aputaulu, jolla liitetään jäsenet ja yhteisösivut yhteen
  
