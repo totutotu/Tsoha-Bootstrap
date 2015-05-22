@@ -1,0 +1,31 @@
+﻿
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Käyttäjä: Taulu sisältää tiedot käyttäjätunnuksista ja salasanoista
+Profiili: Julkinen profiili käyttäjästä
+Yksprofiili: Yksityinen profiili, joita käyttäjä voi halutessaan jakaa muille käyttäjille ja joita voi luoda useita (eri tarkoituksiin, esim ystävän hakemiseen ja pelkkään dippiin erilaiset sivut), sisältää lisää tarkempaa tietoa kuin pelkkä profiilisivu
+Viesti: käyttäjältä toiselle lähetettävä viesti, johon liittyy lähttäjä ja saaja
+Yhteisosivu: Kayttajan luoma yhteisosivu, jossa yksi käyttäjä toimii ylläpitäjänä ja johon liittyy jasenet-aputaulun kautta tavoitettavia muita
+
+ jäseniä.
+ 

@@ -4,14 +4,35 @@ CREATE TABLE kayttaja (
 );
 
 CREATE TABLE profiili (
-	id SERIAL PRIMARY KEY,
-	kayttajatunnus VARCHAR(20) REFERENCES kayttaja(kayttajatunnus) NOT NULL,
-	syntymaaika DATE NOT NULL,
+	kayttajatunnus VARCHAR(20) REFERENCES kayttaja(kayttajatunnus) PRIMARY KEY,
+	ika INTEGER NOT NULL,
 	etunimi VARCHAR(20),
 	sukunimi VARCHAR(20),
 	sukupuoli VARCHAR(20),
 	esittelyteksti VARCHAR(500),
-	email VARCHAR(30)
+	hakee VARCHAR(20),
+	status VARCHAR(20)
+);
+
+CREATE TABLE yksprofiili (
+	id SERIAL PRIMARY KEY,
+	kayttaja VARCHAR(20) REFERENCES kayttaja(kayttajatunnus) NOT NULL,
+	kinostukset VARCHAR(50),
+	puh INTEGER,
+	email VARCHAR(30),
+	esittely2 VARCHAR(2000)
+);
+
+CREATE TABLE yhteisosivu (
+	id SERIAL PRIMARY KEY,
+	nimi VARCHAR(20) NOT NULL,
+	yllapitaja VARCHAR(20) REFERENCES kayttaja(kayttajatunnus) NOT NULL
+
+);
+
+CREATE TABLE jasenet (
+	yhteiso INTEGER REFERENCES yhteisosivu(id) PRIMARY KEY,
+	kayttajatunnus VARCHAR(20) REFERENCES kayttaja(kayttajatunnus) PRIMARY KEY
 );
 
 CREATE TABLE viesti (
@@ -20,5 +41,6 @@ CREATE TABLE viesti (
 	vastaanottaja VARCHAR(20) REFERENCES kayttaja(kayttajatunnus) NOT NULL,
 	aihe VARCHAR(50),
 	sisalto VARCHAR(500) NOT NULL,
-	lahetetty DATE NOT NULL DEFAULT GETDATE()
+	lahetetty TIMESTAMP
 );
+

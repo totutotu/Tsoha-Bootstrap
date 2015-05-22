@@ -27,5 +27,25 @@
     public static function muokkaa() {
       View::make('muokkaa.html');
     }
+
+    public static function kayttajalista() {
+      View::make('kayttajalista.html');
+    }
+
+   public static function julkprof() {
+      View::make('julkprof.html');
+    }
+
+   public static function kotisivu() {
+      View::make('kotisivu.html');
+    }
+
+     public static function yksitprof() {
+      View::make('yksitprof.html');
+    }
+     
+     public static function yhteiso() {
+      View::make('yhteiso.html');
+    }
   }
 

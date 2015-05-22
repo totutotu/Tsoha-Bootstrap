@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Käyttäjät</h1>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Nimi</th>
+        <th>Sukupuoli</th>
+        <th>Ikä</th>
+        <th>Status</th>
+        <th>Hakee</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><a href="/yvp/julkprof">Linkki julkiseen profiiliin</a></td>
+        <td>Arvoitus</td>
+        <td>11</td>
+        <td>Avioliitossa Jumalaan</td>
+        <td>Anteeksiantoa</td>
+        <th><a class="btn btn-default btn-sm" href="/yvp/uusiviesti.html">Lähetä Viesti</a></th>
+      </tr>
+    </tbody>
+</table>
+
+
+{% endblock %}
