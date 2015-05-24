@@ -1,6 +1,38 @@
 ﻿
 Ystävänvälityspalvelu By Tuomo Torppa
 
+Johdanto
+
+Ystävänvälityspalvelun idea saattaa ihmisiä yhteen, mahdollistaa rekisteröityjen ihmisten profiilien tutkimiseen, 
+viestien lähettämiseen. Käyttäjät voivat luoda ja halutessaan jakaa muille käyttäjille myös yksityisiä tarkempia profiilisivuja
+sekä yhteisösivuja, joihin liittyy ylläpitäjä, sekä yhteisöön kuuluvat jäsenet.
+
+Tehty laitoksen users-palvelimelle käyttäen PHP-ohjelmointikieltä ja sen tärkeimpiä kirjastoja sekä 
+PostgreSQL-tietokantapalvelinta
+
+
+Käyttötapaukset
+
+Uusi käyttäjä
+  rekisteröimätön käyttäjä
+  
+Käyttäjä
+  Rekisteröitynyt käyttäjä
+
+Uuden käyttäjän käyttötapaukset:
+  Rekisteröityminen
+
+Käyttäjän käyttötapaukset:
+  Profiilin muokkaaminen
+    Oman valmiin profiilin muokkaaminen
+  Yksityisviestin lähettäminen:
+    Viestin lähettäminen toiselle käyttäjälle
+  Saapuneiden viestien lukeminen
+  Käyttäjien selaaminen
+  Yhteisösivun luominen
+  Yhteisösivun sisällön päivittäminen
+
+
 
 Käyttäjä
 
