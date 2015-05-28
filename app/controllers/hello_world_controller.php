@@ -1,5 +1,4 @@
 <?php
-
   class HelloWorldController extends BaseController{
 
     public static function index(){
@@ -8,8 +7,12 @@
       }
 
     public static function sandbox(){
-      // Testaa koodiasi täällä
-      View::make('helloworld.html');
+      $adonis = new Kayttaja(array('kayttajatunnus' => 'adonis', 'salasana' => 'fdsa'));
+
+      $kayttaja = Kayttaja::find('adonis');
+      $kayttajat = Kayttaja::all();
+      Kint::dump($kayttaja);
+      Kint::dump($kayttajat);
     }
 
     public static function login(){
@@ -46,6 +49,9 @@
      
      public static function yhteiso() {
       View::make('yhteiso.html');
+    }
+     public static function viesti() {
+      View::make('viesti.html');
     }
   }
 

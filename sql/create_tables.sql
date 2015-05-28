@@ -31,8 +31,9 @@ CREATE TABLE yhteisosivu (
 );
 
 CREATE TABLE jasenet (
-	yhteiso INTEGER REFERENCES yhteisosivu(id) PRIMARY KEY,
-	kayttajatunnus VARCHAR(20) REFERENCES kayttaja(kayttajatunnus) PRIMARY KEY
+	id SERIAL PRIMARY KEY,
+	yhteiso INTEGER REFERENCES yhteisosivu(id),
+	kayttajatunnus VARCHAR(20) REFERENCES kayttaja(kayttajatunnus)
 );
 
 CREATE TABLE viesti (
@@ -41,6 +42,7 @@ CREATE TABLE viesti (
 	vastaanottaja VARCHAR(20) REFERENCES kayttaja(kayttajatunnus) NOT NULL,
 	aihe VARCHAR(50),
 	sisalto VARCHAR(500) NOT NULL,
-	lahetetty TIMESTAMP
+	lahetetty TIMESTAMP,
+	luettu BOOLEAN NOT NULL
 );
 

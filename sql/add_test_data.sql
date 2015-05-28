@@ -6,13 +6,13 @@ INSERT INTO profiili (kayttajatunnus, ika, etunimi, sukupuoli) VALUES ('Tuomo', 
 INSERT INTO profiili (kayttajatunnus, ika, etunimi, sukupuoli, status, hakee) VALUES ('Adonis', 35, 'Aapeli', 'Mies', 'Naimisissa', 'Nainen');
 INSERT INTO profiili (kayttajatunnus, ika, etunimi, sukunimi, sukupuoli, esittelyteksti) VALUES ('Adoniina', 10, 'Niina', 'Niinanen', 'Mies', 'Olen herttainen');
 
-INSERT INTO viesti (lahettaja, vastaanottaja, sisalto) VALUES ('Tuomo', 'Tuomo', 'Tuomo olet kaikista kaunein mies!');
-INSERT INTO viesti (lahettaja, vastaanottaja, sisalto) VALUES ('Tuomo', 'Adoniina', 'Adoniina, olet likainen valehtelija');
-INSERT INTO viesti (lahettaja, vastaanottaja, sisalto) VALUES ('Adonis', 'Adoniina', 'Olit minulle vain tyhmä reikä');
+INSERT INTO viesti (lahettaja, vastaanottaja, sisalto, luettu) VALUES ('Tuomo', 'Tuomo', 'Tuomo olet kaikista kaunein mies!', false);
+INSERT INTO viesti (lahettaja, vastaanottaja, sisalto, luettu) VALUES ('Tuomo', 'Adoniina', 'Adoniina, olet likainen valehtelija', false);
+INSERT INTO viesti (lahettaja, vastaanottaja, sisalto, luettu) VALUES ('Adonis', 'Adoniina', 'Olit minulle vain tyhmä reikä', false);
 
 INSERT INTO yksprofiili (kayttaja, puh) VALUES ('Tuomo', 0849518);
 INSERT INTO yksprofiili (kayttaja, puh) VALUES ('Adonis', 29518);
-INSERT INTO yksprofiili (kauttaja, email) VALUES ('Adoniina', 'adoniina@adon.thor');
+INSERT INTO yksprofiili (kayttaja, email) VALUES ('Adoniina', 'adoniina@adon.thor');
 
 INSERT INTO yhteisosivu (yllapitaja, nimi) VALUES ('Adonis', 'Adoniinan vihaajat');
 

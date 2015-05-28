@@ -24,10 +24,6 @@
     HelloWorldController::muokkaa();
   });
 
-  $routes->get('/kayttajalista', function() {
-    HelloWorldController::kayttajalista();
-  });
-
   $routes->get('/julkprof', function() {
     HelloWorldController::julkprof();
   });
@@ -44,4 +40,28 @@
     HelloWorldController::yhteiso();
   });
 
-  
+  $routes->get('/viesti', function() {
+    HelloWorldController::viesti();
+  });
+
+  $routes->get('/jasen', function() {
+    ProfiilitController::index();
+   });
+
+ $routes->post('/jasen', function() {
+    ProfiilitController::store();
+    ProfiilitController::index();
+   });
+
+  $routes->post('/jasen/newprofiili', function() {
+    KayttajatController::store();
+    ProfiilitController::newprofiili();
+  });
+
+  $routes->get('/jasen/new', function() {
+    KayttajatController::create();
+  });
+
+  $routes->get('/jasen/:kayttajatunnus', function($kayttajatunnus) {
+   ProfiilitController::show($kayttajatunnus);
+  });  
