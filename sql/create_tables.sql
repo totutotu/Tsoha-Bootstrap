@@ -26,8 +26,8 @@ CREATE TABLE yksprofiili (
 CREATE TABLE yhteisosivu (
 	id SERIAL PRIMARY KEY,
 	nimi VARCHAR(20) NOT NULL,
-	yllapitaja VARCHAR(20) REFERENCES kayttaja(kayttajatunnus) NOT NULL
-
+	yllapitaja VARCHAR(20) REFERENCES kayttaja(kayttajatunnus) NOT NULL,
+	esittely VARCHAR(2000)
 );
 
 CREATE TABLE jasenet (
@@ -40,7 +40,7 @@ CREATE TABLE viesti (
 	id SERIAL PRIMARY KEY,
 	lahettaja VARCHAR(20) REFERENCES kayttaja(kayttajatunnus) NOT NULL,
 	vastaanottaja VARCHAR(20) REFERENCES kayttaja(kayttajatunnus) NOT NULL,
-	aihe VARCHAR(50),
+	aihe VARCHAR(50) NOT NULL,
 	sisalto VARCHAR(500) NOT NULL,
 	lahetetty TIMESTAMP,
 	luettu BOOLEAN NOT NULL

@@ -20,10 +20,25 @@
       $errors = array();
 
       foreach($this->validators as $validator){
-        // Kutsu validointimetodia tässä ja lisää sen palauttamat virheet errors-taulukkoon
+          $this::$validator();
       }
 
       return $errors;
+    }
+
+    public function validate_string_length($sana, $pituus) {
+      $errors = array();
+    
+      if($sana == '' || $sana == null){
+        $errors[] = 'Anna syöte';
+      }
+    
+      if(strlen($sana) < $pituus){
+        $errors[] = 'Pituuden tulee olla vähintään ' . $pituus . ' merkkiä!';
+    }
+    
+    return $errors;
+    
     }
 
   }

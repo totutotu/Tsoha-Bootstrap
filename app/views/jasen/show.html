@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h1>{{profiili.kayttajatunnus}}</h1>
+
+<p>
+    <a href="/yvp/uusiviesti" class="btn btn-primary">Lähetä viesti</a>
+</p>
+
+<p><b>Ikä: </b>{{profiili.ika}}</p>
+
+<p><b>Status: </b>{{profiili.status}}</p>
+
+<p><b>Hakee: </b>{{profiili.hakee}}</p>
+
+<p>{{profiili.esittelyteksti}}</p>
+
+{% endblock %}

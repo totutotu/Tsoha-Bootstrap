@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h1><b>Aihe: </b>{{viesti.aihe}}</h1>
+
+<p><b>Lähettäjä: </b><a href="/yvp/jasen/show/{{viesti.lahettaja}}">{{viesti.lahettaja}}</a></p>
+
+<p><b>Vastaanotettu: </b>{{viesti.lahetetty}}</p>
+
+<p>{{viesti.sisalto}}<p>
+
+{% endblock %}

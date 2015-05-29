@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h1>{{profiili.kayttajatunnus}}</h1>
+
+<p>
+    <a href="/yvp/jasen/muokkaa/" class="btn btn-primary">Muokkaa</a>
+</p>
+
+<p>
+    <a href="/yvp/viestit/index/{{profiili.kayttajatunnus}}" class="btn btn-primary">Postilaatikko</a>
+</p>
+
+<p><b>Ikä: </b>{{profiili.ika}}</p>
+
+<p><b>Status: </b>{{profiili.status}}</p>
+
+<p><b>Hakee: </b>{{profiili.hakee}}</p>
+
+<p>{{profiili.esittelyteksti}}</p>
+
+{% endblock %}

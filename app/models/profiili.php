@@ -6,6 +6,7 @@ class Profiili extends BaseModel {
 
 	public function __construct($attributes) {
 		parent::__construct($attributes);
+		$this->validators = array('validate_ika');
 	}
 
 	public static function all() {

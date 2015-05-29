@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Viestit</h1>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Lähettäjä</th>
+        <th>Aihe</th>
+        <th>Vastaanotettu</th>
+        
+    </thead>
+
+    <tbody>
+        {% for viesti in viestit %}
+      <tr>
+        <td><a href="/yvp/jasen/show/{{viesti.lahettaja}}">{{viesti.lahettaja}}</a></td>
+        <td><a href="/yvp/viestit/nayta/{{viesti.id}}">{{viesti.aihe}}</a></td> 
+        <td>{{viesti.lahetetty}}</td>
+
+      </tr>
+
+      {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

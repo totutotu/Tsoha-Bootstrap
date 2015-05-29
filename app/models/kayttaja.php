@@ -6,6 +6,7 @@ class Kayttaja extends BaseModel {
 
 	public function __construct($attributes) {
 		parent::__construct($attributes);
+		$this->validators = array('validate_kayttajatunnus', 'validate_salasana');
 	}
 
 	public static function all() {
@@ -49,4 +50,16 @@ class Kayttaja extends BaseModel {
 
 	$this->kayttajatunnus = $row['kayttajatunnus'];
 	}
+
+	public function validate_kayttajatunnus(){
+ 	 $errors = parent::validate_string_length($this->kayttajatunnus, 5);
+ 	 Kint::dump($errors);
+ 	 return $errors;
+  }
+
+  public function validate_salasana(){
+ 	 $errors = parent::validate_string_length($this->salasana, 6);
+ 	 return $errors;
+  }
+
 }
