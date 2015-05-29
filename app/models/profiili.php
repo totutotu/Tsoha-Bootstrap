@@ -59,7 +59,7 @@ class Profiili extends BaseModel {
   		:sukupuoli, :esittelyteksti, :hakee, :status) RETURNING kayttajatunnus');
 	$query->execute(array('kayttajatunnus' => $this->kayttajatunnus, 'etunimi' => $this->etunimi, 'sukunimi' => 
 		 $this->sukunimi, 'ika' => $this->ika, 'sukupuoli' => $this->sukupuoli, 'esittelyteksti' => $this->esittelyteksti,
-		 'hakee' => $this->hakee, 'status' => $this->hakee));
+		 'hakee' => $this->hakee, 'status' => $this->status));
 
 	$row = $query->fetch();
 
@@ -67,4 +67,21 @@ class Profiili extends BaseModel {
 	Kint::trace();
 	Kint::dump($row);
 	}
+
+  public function validate_ika()  {
+    $errors = array();
+    if(!is_numeric($this->ika)) {
+      $errors[] = 'Syötä ikä väliltä 5-90';
+    }
+
+
+    if($this->ika == null) {
+      $errors[] = 'Syötä ikä.';
+    }
+    if($this->ika < 5 || $this->ika > 90 ) {
+      $errors[] = 'Syötä ikä väliltä 5-90';
+    }
+
+    return $errors;
+  }
 }

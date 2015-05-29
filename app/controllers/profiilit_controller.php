@@ -31,9 +31,11 @@ Class ProfiilitController extends BaseController {
 
       }
 
-      Kint::dump($params);
+    //  Kint::dump($params);
 
-      Redirect::to('/jasen/oma/' . $kayttaja->kayttajatunnus, array('message' => 'Käyttäjätununs luotu!'));
+
+
+  //    Redirect::to('/jasen/oma/' . $profiili->kayttajatunnus, array('message' => 'Käyttäjätununs luotu!'));
 
   }
 

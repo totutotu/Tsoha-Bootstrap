@@ -27,7 +27,7 @@ class KayttajatController extends BaseController {
 
       }
 
-    Kint::dump($params);
+  // Kint::dump($params);
 
   }
 

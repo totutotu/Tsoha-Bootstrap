@@ -11,7 +11,7 @@ CREATE TABLE profiili (
 	sukupuoli VARCHAR(20),
 	esittelyteksti VARCHAR(500),
 	hakee VARCHAR(20),
-	status VARCHAR(20)
+	status VARCHAR(50)
 );
 
 CREATE TABLE yksprofiili (
