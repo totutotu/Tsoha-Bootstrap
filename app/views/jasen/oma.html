@@ -4,9 +4,14 @@
 
 <h1>{{profiili.kayttajatunnus}}</h1>
 
-<p>
-    <a href="/yvp/jasen/muokkaa/" class="btn btn-primary">Muokkaa</a>
-</p>
+    <form method="post" action="{{base_path}}/jasen/{{profiili.ḱayttajatunnus}}" style="display: inline-block;">
+  <button type="submit" class="btn btn-primary">Muokkaa</button>
+</form>
+
+
+<form method="post" action="{{base_path}}/jasen/{{profiili.ḱayttajatunnus}}/destroy" style="display: inline-block;">
+  <button type="submit" class="btn btn-danger">Poista</button>
+</form>
 
 <p>
     <a href="/yvp/viestit/index/{{profiili.kayttajatunnus}}" class="btn btn-primary">Postilaatikko</a>

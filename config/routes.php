@@ -53,8 +53,8 @@
     ProfiilitController::index();
    });
 
-  $routes->get('/jasen/oma/:kayttajatunnus', function($kayttajatunnus) {
-   ProfiilitController::saveedited($kayttajatunnus);
+  $routes->post('/jasen/oma/:kayttajatunnus', function($kayttajatunnus) {
+   ProfiilitController::paivita($kayttajatunnus);
    ProfiilitController::oma($kayttajatunnus);
   }); 
 
@@ -85,7 +85,11 @@
 
   $routes->get('/jasen/muokkaa/:kayttajatunnus', function($kayttajatunnus) {
    ProfiilitController::muokkaa($kayttajatunnus);
-  });  
+  });
+
+  $routes->post('/jasen/muokkaa/:kayttajatunnus', function($kayttajatunnus) {
+   ProfiilitController::paivita($kayttajatunnus);
+  });
 
   $routes->get('/viestit/index/:kayttajatunnus', function($kayttajatunnus) {
    ViestitController::showviestit($kayttajatunnus);
@@ -94,3 +98,15 @@
   $routes->get('/viestit/nayta/:id', function($id) {
    ViestitController::showviesti($id);
   });  
+
+  $routes->post('/jasen/:id/destroy', function($kayttajatunnus){
+  ProfiilitController::destroy($kayttajatunnus);
+});
+
+  $routes->get('/login', function(){
+  UserController::login();
+});
+
+$routes->post('/login', function(){
+  UserController::handle_login();
+});

@@ -13,10 +13,15 @@ Class ViestitController extends BaseController {
         'luettu' => $params['luettu'],
         ));
 
-      $viesti->save();
+      $errors  = $viesti->errors();
 
-      Kint::dump($params);
 
+      if(count($errors) == 0)  {
+        $viesti->save();
+      } else {
+        View::make('viestit/new.html', array('errors' => $errors, 'viesti' => $viesti));
+
+      }
       // Redirect::to('/jasen));
 
   }

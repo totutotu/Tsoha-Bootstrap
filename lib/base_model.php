@@ -19,26 +19,34 @@
       // Lisätään $errors muuttujaan kaikki virheilmoitukset taulukkona
       $errors = array();
 
-      foreach($this->validators as $validator){
-          $this::$validator();
-      }
 
+      foreach($this->validators as $validator){
+          $errors = array_merge($errors, $this::$validator());
+      }
+      Kint::dump($errors);
       return $errors;
     }
 
-    public function validate_string_length($sana, $pituus) {
+    public function validate_string_length($sana, $pituus, $muuttuja) {
       $errors = array();
     
       if($sana == '' || $sana == null){
-        $errors[] = 'Anna syöte';
-      }
-    
-      if(strlen($sana) < $pituus){
-        $errors[] = 'Pituuden tulee olla vähintään ' . $pituus . ' merkkiä!';
+        $errors[] = $muuttuja . ' syöte puuttuu.';
+      } else if(strlen($sana) < $pituus){
+        $errors[] = $muuttuja . ' pituuden tulee olla vähintään ' . $pituus . ' merkkiä!';
     }
-    
+        Kint::dump($errors);
     return $errors;
-    
     }
 
+    public function validate_string_length_max($sana, $maxpituus, $muuttuja) {
+      $errors = array();
+       
+      if(strlen($sana) > $maxpituus){
+        $errors[] = $muuttuja . ' pituuden tulee olla enintään ' . $maxpituus . ' merkkiä!';
+    }
+
+    Kint::dump($errors);
+    return $errors;
+    }
   }

@@ -1,9 +1,14 @@
 {% extends "base.html" %}
-
 {% block content %}
   <div class="page-header">
     <h1>Tervetuloa ystävävälitykseen!</h1>
   </div>
+{% if message %}
+  <div class="alert alert-success">
+  {{message}}
+</div>
+{%endif%}
+
 
   <p>
   	Kauniin sivun tarkoituksena on liittää ihmiset ympäri maailmaa toisiinsa. Mukaan vaan ja laulamaan

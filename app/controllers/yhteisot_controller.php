@@ -12,6 +12,23 @@ Class YhteisotController extends BaseController {
   public static function store() {
     $params= $_POST;
 
+    $yhteiso = new Yhteiso(array(
+        'id' = $id;
+        'nimi' => $params['nimi'],
+        'yllapitaja' => $params['yllapitaja'],
+        'esittely' => $params['esittely'],
+        ));
+
+      $errors  = $yhteiso->errors();
+
+
+      if(count($errors) == 0)  {
+        $yhteiso->save();
+      } else {
+        View::make('ythteisot/new.html', array('errors' => $errors, 'yhteiso' => $yhteiso));
+
+      }
+
     Kint::dump($params);
   }
 

@@ -5,6 +5,8 @@ class Viesti extends BaseModel {
 
 	public function __construct($attributes) {
 		parent::__construct($attributes);
+		$this->validators = array('validate_aihe', 'validate_sisalto');
+
 		
 	}
 
@@ -15,7 +17,7 @@ class Viesti extends BaseModel {
 
         if($row) {
         	$viesti = new Viesti(array(
-        		'id' => $row['id'],
+        		'id' => $id,
 				'lahettaja' => $row['lahettaja'],
 				'vastaanottaja' => $row['vastaanottaja'],
 				'aihe' => $row['aihe'],
@@ -65,4 +67,21 @@ class Viesti extends BaseModel {
 	Kint::trace();
 	Kint::dump($row);
 	}
+
+	public function validate_aihe(){
+ 		$errors = parent::validate_string_length($this->aihe, 5, 'Aiheen');
+		$errors = array_merge($errors, parent::validate_string_length_max($this->aihe, 30, 'Aiheen'));
+
+ 		Kint::dump($errors);
+ 		return $errors;
+  }
+  	public function validate_sisalto(){
+ 		$errors = parent::validate_string_length($this->kayttajatunnus, 5, 'Viestin sisällön');
+		$errors = array_merge($errors, parent::validate_string_length_max($this->kayttajatunnus, 3, 'Viestin sisällön'));
+
+ 		Kint::dump($errors);
+ 		return $errors;
+  }
+
+
 }

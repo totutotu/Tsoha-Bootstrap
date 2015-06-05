@@ -68,20 +68,47 @@ class Profiili extends BaseModel {
 	Kint::dump($row);
 	}
 
+	public function paivita() {
+		$query = DB::connection()->prepare('UPDATE profiili SET status = 
+			:status, hakee = :hakee,
+			esittelyteksti = :esittelyteksti WHERE kayttajatunnus = :kayttajatunnus');
+		$query->execute(array('kayttajatunnus' => $this->kayttajatunnus, 'esittelyteksti' => $this->esittelyteksti,
+		 'hakee' => $this->hakee, 'status' => $this->status));
+		$row = $query->fetch();
+
+		Kint::dump($query);
+
+		$profiili = new Profiili(array(
+        		'kayttajatunnus' => $row['kayttajatunnus'],
+				'etunimi' => $row['etunimi'],
+				'sukunimi' => $row['sukunimi'],
+				'ika' => $row['ika'],
+				'sukupuoli' => $row['sukupuoli'],
+				'esittelyteksti' => $row['esittelyteksti'],
+				'hakee' => $row['hakee'],
+				'status' => $row['status']
+        ));
+
+
+		return $profiili;
+
+
+		
+	}
+
   public function validate_ika()  {
     $errors = array();
     if(!is_numeric($this->ika)) {
       $errors[] = 'Syötä ikä väliltä 5-90';
-    }
-
-
-    if($this->ika == null) {
+    } else if($this->ika == null) {
       $errors[] = 'Syötä ikä.';
-    }
-    if($this->ika < 5 || $this->ika > 90 ) {
+    }else if($this->ika < 5 || $this->ika > 90 ) {
       $errors[] = 'Syötä ikä väliltä 5-90';
     }
+    
+    Kint::dump($errors);
 
     return $errors;
   }
+
 }

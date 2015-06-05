@@ -5,6 +5,7 @@ class Yhteiso extends BaseModel {
 
 	public function __construct($attributes) {
 		parent::__construct($attributes);
+		$this->validators = array('validate_nimi');
 	}
 
 	public static function all() {
@@ -61,4 +62,13 @@ class Yhteiso extends BaseModel {
 	Kint::trace();
 	Kint::dump($row);
 	}
+
+  public function validate_aihe(){
+ 	$errors = parent::validate_string_length($this->nimi, 5, 'Yhteisön nimen');
+	$errors = array_merge($errors, parent::validate_string_length_max($this->nimi, 20, 'Yhteisön nimen'));
+    Kint::dump($errors);
+  
+ 	return $errors;
+  }
+
 }

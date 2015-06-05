@@ -23,11 +23,12 @@ Class ProfiilitController extends BaseController {
         ));
 
       $errors = $profiili->errors();
+      Kint::dump($errors);
 
       if(count($errors) == 0)  {
         $profiili->save();
       } else {
-        View::make('jasen/new.html', array('errors' => $errors, 'attributes' => $attributes));
+        View::make('jasen/newprofiili.html', array('errors' => $errors, 'profiili' => $profiili));
 
       }
 
@@ -35,7 +36,7 @@ Class ProfiilitController extends BaseController {
 
 
 
-  //    Redirect::to('/jasen/oma/' . $profiili->kayttajatunnus, array('message' => 'Käyttäjätununs luotu!'));
+      Redirect::to('/jasen/oma/' . $profiili->kayttajatunnus, array('message' => 'Käyttäjätununs luotu!'));
 
   }
 
@@ -55,11 +56,46 @@ Class ProfiilitController extends BaseController {
 
   public static function muokkaa($kayttajatunnus) {
     $profiili=Profiili::find($kayttajatunnus);
+    Kint::dump($profiili);
     View::make('jasen/muokkaa.html', array('profiili' => $profiili));
   }
 
-  public static function saveedited($kayttajatunnus) {
+  public static function paivita($kayttajatunnus) {
+    $params = $_POST;
+
+
+    kint::dump($kayttajatunnus);
+  
+    kint::dump($params);
+
+    $attributes = array(
+        'kayttajatunnus' => $kayttajatunnus,
+        'esittelyteksti' => $params['esittelyteksti'],
+        'hakee' => $params['hakee'],
+        'status' => $params['status']
+        );
+
+    $profiili = new Profiili($attributes);
+
+    Kint::dump($profiili);
+
+
+
+    $profiili->paivita();
+    //errors
+
+ //   Redirect::to('/jasen/oma/' . $profiili->kayttajatunnus, array('message' => 'Profiilin muokkaus onnistui loistavasti'));
+
     
+  }
+
+  public static function destroy($kayttajatunnus) {
+
+    $profiili = new Profiili(array('kayttajatunnus' => $kayttajatunnus));
+
+    $profiili->destroy();
+
+    Redirect::to('/yvp', array('message' => 'Käyttäjätunnuksesi profiileineen on poistettu loistavasti!'));
   }
 
 
@@ -67,16 +103,13 @@ Class ProfiilitController extends BaseController {
     $errors = array();
     if(!is_numeric($this->ika)) {
       $errors[] = 'Syötä ikä väliltä 5-90';
-    }
-
-
-    if($this->ika == null) {
+    }  else if($this->ika == null) {
       $errors[] = 'Syötä ikä.';
-    }
-    if($this->ika < 5 || $this->ika > 90 ) {
+    } else if($this->ika < 5 || $this->ika > 90 ) {
       $errors[] = 'Syötä ikä väliltä 5-90';
     }
 
     return $errors;
   }
+
 }

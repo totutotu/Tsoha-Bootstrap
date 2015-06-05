@@ -2,15 +2,15 @@
 {% block content %}
   <h1>Kirjaudu sisään</h1>
 
-  <form>
-    <div class="col-xs-4">
+  <form method="post" action="{{base_path}}/login">
+    <div class="form-group">
       <label>Käyttäjätunnus</label>
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="kayttajatunnus" value="{{kayttajatunnus}}">
     </div>
 
-    <div class="col-xs-4">
+    <div class="form-group">
       <label>Salasana</label>
-      <input type="password" class="form-control">
+      <input type="password" class="form-control" name="salasana">
     </div>
 
     
