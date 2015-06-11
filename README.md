@@ -7,7 +7,10 @@ Yleisiä linkkejä:
 * [Linkki profiililistaukseen](http://totutotu.users.cs.helsinki.fi/yvp/jasen)
 * [Linkki rekisteröitymiseen](http://totutotu.users.cs.helsinki.fi/yvp/)
 
-Rekisteröitymisestä pystyy luomaan uuden käyttäjän. Tämän jälkeen käyttäjälle luodaan profiili, minkä jälkeen sivu ohjautuu käyttäjälistaan, josta pääsee tutustumaan käyttäjien profiileihin.
+
+Kirjautuminen onnistuu käyttiksellä Tuomo, salasana tuomokka, tai luoden uudet tunnukset. Viestien lähettäminen ei vielä toistaiseksi toimi.
+
+
 
 ## Työn aihe
 
