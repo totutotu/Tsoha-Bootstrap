@@ -1,20 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
+{% import "macros/forms.html" as forms %}
+
 
 
 <h1>{{profiili.kayttajatunnus}}</h1>
 
-    <form method="post" action="{{base_path}}/jasen/{{profiili.ḱayttajatunnus}}" style="display: inline-block;">
-  <button type="submit" class="btn btn-primary">Muokkaa</button>
-</form>
 
-
-<form method="post" action="{{base_path}}/jasen/{{profiili.ḱayttajatunnus}}/destroy" style="display: inline-block;">
-  <button type="submit" class="btn btn-danger">Poista</button>
-</form>
+{% if message %}
+    <div class="alert alert-success">
+          <p>{{message}}</p>
+    </div>
+{%endif%}
 
 <p>
+    <a href="{{base_path}}/jasen/muokkaa/{{profiili.kayttajatunnus}}" class="btn btn-primary">Muokkaa</a>
     <a href="/yvp/viestit/index/{{profiili.kayttajatunnus}}" class="btn btn-primary">Postilaatikko</a>
+    	  {{forms.destroy_button("#{base_path}/jasen/#{profiili.kayttajatunnus}/destroy")}}
 </p>
 
 <p><b>Ikä: </b>{{profiili.ika}}</p>

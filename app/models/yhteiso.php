@@ -29,9 +29,8 @@ class Yhteiso extends BaseModel {
 
 	public static function find($id) {
 	    $query = DB::connection()->prepare('SELECT * FROM yhteisosivu WHERE id = :id LIMIT 1');
-        $row = $query->fetch();
         $query->execute(array('id' => $id));
-
+        $row = $query->fetch();
         if($row) {
 			$yhteiso= new Yhteiso(array(
 				'id' => $row['id'],
@@ -63,7 +62,7 @@ class Yhteiso extends BaseModel {
 	Kint::dump($row);
 	}
 
-  public function validate_aihe(){
+  public function validate_nimi(){
  	$errors = parent::validate_string_length($this->nimi, 5, 'Yhteisön nimen');
 	$errors = array_merge($errors, parent::validate_string_length_max($this->nimi, 20, 'Yhteisön nimen'));
     Kint::dump($errors);

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Käyttäjätietojen poisto</h1>
+
+<p>haluatko varmasti poistaa käyttäjätunnuksesi profiilitietoineen?</p>
+
+    <button type="submit" class="btn btn-danger">Kyllä</button>
+    <a href="{{base_path}}/jasen/oma/{{profiili.kayttajatunnus}}" class="btn btn-primary">Peruuta</a>
+
+
+
+{% endblock %}

@@ -2,6 +2,8 @@
 
 Class YhteisotController extends BaseController {
   public static function index() {
+    self::check_logged_in();
+
 
   	$yhteisot = Yhteiso::all();
 
@@ -10,12 +12,14 @@ Class YhteisotController extends BaseController {
 
 
   public static function store() {
+    self::check_logged_in();
+
     $params= $_POST;
+    $yllapitaja = $_SESSION['kayttaja'];
 
     $yhteiso = new Yhteiso(array(
-        'id' = $id;
         'nimi' => $params['nimi'],
-        'yllapitaja' => $params['yllapitaja'],
+        'yllapitaja' => $yllapitaja,
         'esittely' => $params['esittely'],
         ));
 
@@ -25,7 +29,7 @@ Class YhteisotController extends BaseController {
       if(count($errors) == 0)  {
         $yhteiso->save();
       } else {
-        View::make('ythteisot/new.html', array('errors' => $errors, 'yhteiso' => $yhteiso));
+        View::make('yhteisot/new.html', array('errors' => $errors, 'yhteiso' => $yhteiso));
 
       }
 
@@ -33,10 +37,14 @@ Class YhteisotController extends BaseController {
   }
 
   public static function newyhteiso() {
-    View::make('yhteisot/newyhteiso.html');
+    self::check_logged_in();
+
+    View::make('yhteisot/new.html');
   }
 
   public static function show($id) {
+    self::check_logged_in();
+
     $yhteiso=Yhteiso::find($id);
     View::make('yhteisot/yhteisosivu.html', array('yhteiso' => $yhteiso));
   }

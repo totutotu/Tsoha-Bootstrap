@@ -44,6 +44,24 @@
     HelloWorldController::viesti();
   });
 
+  $routes->get('/viestit/new', function() {
+    ViestitController::newViesti();
+  });
+
+  $routes->get('/yhteisot/new', function() {
+    YhteisotController::newyhteiso();
+  });
+
+  $routes->get('/yhteisot', function() {
+    YhteisotController::index();
+  });
+
+  $routes->post('/yhteisot', function() {
+    YhteisotController::store();
+    YhteisotController::index();
+    
+  });
+
   $routes->get('/jasen', function() {
     ProfiilitController::index();
    });
@@ -71,10 +89,6 @@
    ProfiilitController::show($kayttajatunnus);
   });  
 
-  $routes->get('/yhteisot', function() {
-    YhteisotController::index();
-  });
-
   $routes->get('/yhteisot/yhteisosivu/:id', function($id) {
    YhteisotController::show($id);
   });  
@@ -83,12 +97,18 @@
    ProfiilitController::oma($kayttajatunnus);
   });  
 
+  $routes->post('/jasen/:kayttajatunnus/destroy', function($kayttajatunnus){
+  ProfiilitController::destroy($kayttajatunnus);
+  });
+
   $routes->get('/jasen/muokkaa/:kayttajatunnus', function($kayttajatunnus) {
    ProfiilitController::muokkaa($kayttajatunnus);
   });
 
   $routes->post('/jasen/muokkaa/:kayttajatunnus', function($kayttajatunnus) {
    ProfiilitController::paivita($kayttajatunnus);
+   ProfiilitController::oma($kayttajatunnus);
+
   });
 
   $routes->get('/viestit/index/:kayttajatunnus', function($kayttajatunnus) {
@@ -99,14 +119,14 @@
    ViestitController::showviesti($id);
   });  
 
-  $routes->post('/jasen/:id/destroy', function($kayttajatunnus){
-  ProfiilitController::destroy($kayttajatunnus);
-});
-
   $routes->get('/login', function(){
-  UserController::login();
+  KayttajatController::login();
 });
 
 $routes->post('/login', function(){
-  UserController::handle_login();
+  KayttajatController::handle_login();
+});
+
+$routes->post('/logout', function(){
+  KayttajatController::logout();
 });

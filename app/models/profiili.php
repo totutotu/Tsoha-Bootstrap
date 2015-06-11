@@ -75,25 +75,8 @@ class Profiili extends BaseModel {
 		$query->execute(array('kayttajatunnus' => $this->kayttajatunnus, 'esittelyteksti' => $this->esittelyteksti,
 		 'hakee' => $this->hakee, 'status' => $this->status));
 		$row = $query->fetch();
-
 		Kint::dump($query);
-
-		$profiili = new Profiili(array(
-        		'kayttajatunnus' => $row['kayttajatunnus'],
-				'etunimi' => $row['etunimi'],
-				'sukunimi' => $row['sukunimi'],
-				'ika' => $row['ika'],
-				'sukupuoli' => $row['sukupuoli'],
-				'esittelyteksti' => $row['esittelyteksti'],
-				'hakee' => $row['hakee'],
-				'status' => $row['status']
-        ));
-
-
-		return $profiili;
-
-
-		
+	
 	}
 
   public function validate_ika()  {
@@ -109,6 +92,13 @@ class Profiili extends BaseModel {
     Kint::dump($errors);
 
     return $errors;
+  }
+
+  public function destroy() {
+  	$query  = DB::connection()->prepare('DELETE FROM profiili WHERE kayttajatunnus = :kayttajatunnus');
+	//$query->execute(array('kayttajatunnus' => $this->kayttajatunnus, 'esittelyteksti' => $this->esittelyteksti,
+//		 'hakee' => $this->hakee, 'status' => $this->status));
+	$row = $query->fetch();
   }
 
 }

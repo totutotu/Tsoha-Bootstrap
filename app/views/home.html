@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
+
+{% if message %}
+    <div class="alert alert-success">
+          <p>{{message}}</p>
+    </div>
+{%endif%}
+
   <div class="page-header">
     <h1>Tervetuloa ystävävälitykseen!</h1>
   </div>
@@ -21,5 +28,6 @@
     <a href="http://totutotu.users.cs.helsinki.fi/yvp/jasen/new" class="btn btn-primary btn-lg"> Rekisteröidy </a>
 
   </p>
+
 
 {% endblock %}
