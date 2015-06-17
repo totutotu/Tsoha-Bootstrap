@@ -30,6 +30,27 @@ class Yhteiso extends BaseModel {
 	public static function find($id) {
 	    $query = DB::connection()->prepare('SELECT * FROM yhteisosivu WHERE id = :id LIMIT 1');
         $query->execute(array('id' => $id));
+        
+        $rows = $query->fetchAll();
+        $yhteisot = array();
+
+		foreach ($yhteisot as $yhteiso) {
+
+			$yhteisot[] = new Yhteiso(array(
+				'id' => $row['id'],
+				'nimi' => $row['nimi'],
+				'yllapitaja' => $row['yllapitaja'],
+				'esittely' => $row['esittely']
+        ));
+        return $yhteisot;
+        }
+        return null;
+	}
+
+
+	public static function findall($yllapitaja) {
+	    $query = DB::connection()->prepare('SELECT * FROM yhteisosivu WHERE yllapitaja = :yllapitaja');
+        $query->execute(array('yllapitaja' => $yllapitaja));
         $row = $query->fetch();
         if($row) {
 			$yhteiso= new Yhteiso(array(
@@ -40,9 +61,6 @@ class Yhteiso extends BaseModel {
         ));
         return $yhteiso;
         }
-
-
-
         return null;
 	}
 
@@ -69,5 +87,11 @@ class Yhteiso extends BaseModel {
   
  	return $errors;
   }
+
+ public function destroy() {
+  	$query  = DB::connection()->prepare('DELETE FROM Yhteisosivu WHERE yllapitaja = :yllapitaja');
+  	$query->execute(array('yllapitaja' => $this->yllapitaja));
+	$row = $query->fetch();
+ }
 
 }

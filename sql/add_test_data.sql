@@ -10,13 +10,8 @@ INSERT INTO viesti (lahettaja, aihe, vastaanottaja, sisalto, luettu) VALUES ('Tu
 INSERT INTO viesti (lahettaja, aihe, vastaanottaja, sisalto, luettu) VALUES ('Tuomo', 'Yllätys!', 'Adoniina', 'Adoniina, olet likainen valehtelija', false);
 INSERT INTO viesti (lahettaja, aihe, vastaanottaja, sisalto, luettu) VALUES ('Adonis', 'Julistan', 'Adoniina', 'Olit minulle vain tyhmä reikä', false);
 
-INSERT INTO yksprofiili (kayttaja, puh) VALUES ('Tuomo', 0849518);
-INSERT INTO yksprofiili (kayttaja, puh) VALUES ('Adonis', 29518);
-INSERT INTO yksprofiili (kayttaja, email) VALUES ('Adoniina', 'adoniina@adon.thor');
-
 INSERT INTO yhteisosivu (yllapitaja, nimi, esittely) VALUES ('Adonis', 'Adoniinan vihaajat', 'Kaikille, jotka vihaavat sitä likaista lutkaa');
 INSERT INTO yhteisosivu (yllapitaja, nimi, esittely) VALUES ('Adoniina', 'Adoniinan tukijat', 'Adoniina on kaunis herttainen mies, älkää inhotko');
 
 
 
-INSERT INTO jasenet (yhteiso, kayttajatunnus) VALUES (1, 'Tuomo');

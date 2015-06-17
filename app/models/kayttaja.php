@@ -24,6 +24,14 @@ class Kayttaja extends BaseModel {
 		return $kayttajat;
 	}
 
+  public function destroy() {
+
+  	$query  = DB::connection()->prepare('DELETE FROM Kayttaja WHERE kayttajatunnus = :kayttajatunnus');
+  	$query->execute(array('kayttajatunnus' => $this->kayttajatunnus));
+	$row = $query->fetch();
+
+  }
+
 	public static function find($tunnus) {
 	    $query = DB::connection()->prepare('SELECT * FROM Kayttaja WHERE kayttajatunnus = :tunnus LIMIT 1');
         $query->execute(array('tunnus' => $tunnus));

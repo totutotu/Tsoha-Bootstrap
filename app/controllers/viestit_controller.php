@@ -1,16 +1,14 @@
 <?php
 
 Class ViestitController extends BaseController {
-  public static function store() {
+  public static function talleta() {
     $params= $_POST;
 
       $viesti = new Viesti(array(
-        'lahettaja' => $params['lahettaja'],
+        'lahettaja' => $_SESSION['kayttaja'],
         'vastaanottaja' => $params['vastaanottaja'],
         'aihe' => $params['aihe'],
         'sisalto' => $params['sisalto'],
-        'lahetetty' => $params['lahetetty'],
-        'luettu' => $params['luettu'],
         ));
 
       $errors  = $viesti->errors();
@@ -22,12 +20,13 @@ Class ViestitController extends BaseController {
         View::make('viestit/new.html', array('errors' => $errors, 'viesti' => $viesti));
 
       }
-      // Redirect::to('/jasen));
+
+    //  Redirect::to('/viestit/index/' . $viesti->lahettaja, array('message' => 'Viesti lähetetty!'));
 
   }
 
   public static function newViesti() {
-    View::make('uusiviesti.html');
+    View::make('viestit/new.html');
   }
 
   public static function showviestit($kayttajatunnus) {
@@ -39,4 +38,14 @@ Class ViestitController extends BaseController {
     $viesti=Viesti::find($id);
     View::make('viestit/nayta.html', array('viesti' => $viesti));
   }
+
+  public static function destroy($kayttajatunnus) {
+    self::check_logged_in();
+
+    $viesti = new Viesti(array('lahettaja' => $kayttajatunnus));
+
+    $viesti->destroy();
+
+  }
+
 }

@@ -48,4 +48,16 @@ Class YhteisotController extends BaseController {
     $yhteiso=Yhteiso::find($id);
     View::make('yhteisot/yhteisosivu.html', array('yhteiso' => $yhteiso));
   }
+
+  public static function destroy($kayttajatunnus) {
+    self::check_logged_in();
+
+    $yhteiso = new Yhteiso(array('yllapitaja' => $kayttajatunnus));
+
+    $yhteiso->destroy();
+  }
+  public static function showyhteisot($kayttajatunnus) {
+    $yhteisot=Yhteiso::findall($kayttajatunnus);
+    View::make('yhteisot/omat', array('yhteisot' => $yhteisot));
+  }
 }

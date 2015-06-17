@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h1>{{yhteiso.nimi}}</h1>
+
+<p>
+    <a href="/yvp/yhteisot/muokkaa" class="btn btn-primary">Muokkaa yhteisöä</a>
+</p>
+
+<p>{{yhteiso.esittely}}</p>
+
+{% endblock %}

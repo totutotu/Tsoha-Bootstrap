@@ -6,7 +6,6 @@
       <tr>
         <th>Lähettäjä</th>
         <th>Aihe</th>
-        <th>Vastaanotettu</th>
         
     </thead>
 
@@ -15,14 +14,10 @@
       <tr>
         <td><a href="/yvp/jasen/show/{{viesti.lahettaja}}">{{viesti.lahettaja}}</a></td>
         <td><a href="/yvp/viestit/nayta/{{viesti.id}}">{{viesti.aihe}}</a></td> 
-        <td>{{viesti.lahetetty}}</td>
 
       </tr>
-
       {% endfor %}
     </tbody>
 </table>
-
-
 
 {% endblock %}

@@ -11,19 +11,17 @@ class Viesti extends BaseModel {
 	}
 
 	public static function find($id) {
-	    $query = DB::connection()->prepare('SELECT * FROM viesti WHERE id = :id');
+	    $query = DB::connection()->prepare('SELECT * FROM viesti WHERE id = :id LIMIT 1');
 	    $query->execute(array('id' => $id));
         $row = $query->fetch();
 
         if($row) {
         	$viesti = new Viesti(array(
-        		'id' => $id,
+        		'id' => $row['id'],
 				'lahettaja' => $row['lahettaja'],
 				'vastaanottaja' => $row['vastaanottaja'],
 				'aihe' => $row['aihe'],
 				'sisalto' => $row['sisalto'],
-				'lahetetty' => $row['lahetetty'],
-				'luettu' => $row['luettu'],
 	    	));
 
         return $viesti;
@@ -40,12 +38,10 @@ class Viesti extends BaseModel {
 
         foreach($rows as $row) {
 			$viestit[] = new Viesti(array(
+				'id' => $row['id'],
 				'lahettaja' => $row['lahettaja'],
-				'vastaanottaja' => $row['vastaanottaja'],
 				'aihe' => $row['aihe'],
 				'sisalto' => $row['sisalto'],
-				'lahetetty' => $row['lahetetty'],
-				'luettu' => $row['luettu'],
 				));
 		
 
@@ -57,15 +53,13 @@ class Viesti extends BaseModel {
 	}
 
 	public function save() {
-  	$query = DB::connection()->prepare('INSERT INTO Viesti(lahettaja, vastaanottaja, aihe, sisalto, lahetetty, luettu) VALUES (:lahettaja, :vastaanottaja, :aihe, :sisalto, :lahetetty, :luettu) RETURNING id');
-	$query->execute(array('lahettaja' => $this->lahettaja, 'vastaanottaja' => $this->vastaanottaja, 'aihe' => 
-		 $this->aihe, 'sisalto' => $this->sisalto, 'lahetetty' => $this->lahetetty, 'luettu' => $this->luettu));
+  	$query = DB::connection()->prepare('INSERT INTO Viesti(id, lahettaja, vastaanottaja, aihe, sisalto) VALUES (:lahettaja, :vastaanottaja, :aihe, :sisalto) RETURNING id');
+	$query->execute(array('id' => 'DEFAÙLT', 'lahettaja' => $_SESSION['kayttaja'], 'vastaanottaja' => $this->vastaanottaja, 'aihe' => 
+		 $this->aihe, 'sisalto' => $this->sisalto));
 
 	$row = $query->fetch();
 
 	$this->id = $row['id'];
-	Kint::trace();
-	Kint::dump($row);
 	}
 
 	public function validate_aihe(){
@@ -83,5 +77,10 @@ class Viesti extends BaseModel {
  		return $errors;
   }
 
+  	public function destroy() {
 
+		$query  = DB::connection()->prepare('DELETE FROM Viesti WHERE lahettaja = :lahettaja');
+  		$query->execute(array('lahettaja' => $this->lahettaja));
+		$row = $query->fetch();
+	}
 }

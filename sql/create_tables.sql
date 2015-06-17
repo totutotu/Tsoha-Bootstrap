@@ -43,6 +43,6 @@ CREATE TABLE viesti (
 	aihe VARCHAR(50) NOT NULL,
 	sisalto VARCHAR(500) NOT NULL,
 	lahetetty TIMESTAMP,
-	luettu BOOLEAN NOT NULL
+	luettu BOOLEAN
 );
 

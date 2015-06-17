@@ -13,7 +13,7 @@ class KayttajatController extends BaseController {
 
   	$kayttaja = new Kayttaja(array(
   		'kayttajatunnus' => $params['kayttajatunnus'],
-  		'salasana' => $params['kayttajatunnus']
+  		'salasana' => $params['salasana']
   		));
 
       $errors = $kayttaja->errors();
@@ -24,6 +24,7 @@ class KayttajatController extends BaseController {
 
       if(count($errors) == 0)  {
         $kayttaja->save();
+
       } else {
         View::make('jasen/new.html', array('errors' => $errors, 'kayttaja' => $kayttaja));
 
@@ -38,9 +39,20 @@ class KayttajatController extends BaseController {
     View::make('jasen/newprofiili.html');
   } 
 
-  public static function login(){
-      View::make('yvp/login.html');
+  public static function destroy($kayttajatunnus) {
+    self::check_logged_in();
+
+    $kayttaja = new Kayttaja(array('kayttajatunnus' => $kayttajatunnus));
+
+    $kayttaja->destroy();
+
+    self::lastlogout();
   }
+
+  public static function login(){
+      View::make('login.html');
+  }
+
   public static function handle_login(){
     $params = $_POST;
 
@@ -56,9 +68,23 @@ class KayttajatController extends BaseController {
     }
   }
 
+    public static function handle_first_login(){
+    $params = $_POST;
+
+    $kayttaja = Kayttaja::authenticate($params['kayttajatunnus'], $params['salasana']);
+    $_SESSION['kayttaja'] = $kayttaja->kayttajatunnus;
+    
+  }
+
     public static function logout() {
     $_SESSION['kayttaja'] = null;
     Redirect::to('/login', array('message' => 'Olet kirjautunut ulos!'));
+  }
+
+
+  public static function lastlogout() {
+    $_SESSION['kayttaja'] = null;
+    Redirect::to('/login', array('message' => 'Käyttäjätunnuksesi profiileineen on poistettu loistavasti!'));
   }
 
 }

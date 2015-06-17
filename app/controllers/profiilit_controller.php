@@ -16,7 +16,7 @@ Class ProfiilitController extends BaseController {
     $params= $_POST;
 
       $profiili = new Profiili(array(
-        'kayttajatunnus' => $params['kayttajatunnus'],
+        'kayttajatunnus' => $_SESSION['kayttaja'],
         'etunimi' => $params['etunimi'],
         'sukunimi' => $params['sukunimi'],
         'ika' => $params['ika'],
@@ -35,10 +35,6 @@ Class ProfiilitController extends BaseController {
         View::make('jasen/newprofiili.html', array('errors' => $errors, 'profiili' => $profiili));
 
       }
-
-    //  Kint::dump($params);
-
-
 
       Redirect::to('/jasen/oma/' . $profiili->kayttajatunnus, array('message' => 'Käyttäjätununs luotu!'));
 
@@ -92,8 +88,6 @@ Class ProfiilitController extends BaseController {
 
     $profiili = new Profiili($attributes);
 
-    Kint::dump($profiili);
-
     $profiili->paivita();
 
   Redirect::to('/jasen/oma/' . $paivitettava->kayttajatunnus, array('message' => 'Profiilin muokkaus onnistui loistavasti'));
@@ -105,10 +99,8 @@ Class ProfiilitController extends BaseController {
     self::check_logged_in();
 
     $profiili = new Profiili(array('kayttajatunnus' => $kayttajatunnus));
-
+    
     $profiili->destroy();
-
-    Redirect::to('', array('message' => 'Käyttäjätunnuksesi profiileineen on poistettu loistavasti!'));
   }
 
 

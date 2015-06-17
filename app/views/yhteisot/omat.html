@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Yhteisöt</h1>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Nimi</th>
+        <th>Ylläpitäjä</th>
+        
+    </thead>
+
+    <tbody>
+        {% for yhteiso in yhteisot %}
+      <tr>
+        <td><a href="/yvp/yhteisot/yhteisosivu/{{yhteiso.id}}">{{yhteiso.nimi}}</a></td>
+        <td><a href="/yvp/jasen/show/{{yhteiso.yllapitaja}}">{{yhteiso.yllapitaja}}</a></td>        
+      </tr>
+
+      {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
