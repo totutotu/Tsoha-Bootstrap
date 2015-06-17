@@ -5,7 +5,7 @@ Yleisiä linkkejä:
 * [Linkki sovellukseeni](http://totutotu.users.cs.helsinki.fi/yvp/)
 * [Linkki dokumentaatiooni](https://github.com/totutotu/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
 * [Linkki profiililistaukseen](http://totutotu.users.cs.helsinki.fi/yvp/jasen)
-* [Linkki rekisteröitymiseen](http://totutotu.users.cs.helsinki.fi/yvp/)
+* [Linkki rekisteröitymiseen](http://totutotu.users.cs.helsinki.fi/yvp/jasen/new)
 * [Linkki käyttöliittymään ja komponentteihin](https://github.com/totutotu/Tsoha-Bootstrap/blob/master/doc/Kliittymajakomponentit.png)
 * [Käyttötapauskaavio](https://github.com/totutotu/Tsoha-Bootstrap/blob/master/doc/Ktkaavio.png)
 * [Käynnistys-/ käyttöohje](https://github.com/totutotu/Tsoha-Bootstrap/blob/master/doc/K%C3%A4ynnistys-%20k%C3%A4ytt%C3%B6ohje)
