@@ -1,0 +1,19 @@
+Käynnistys- / käyttöohje
+
+Osoitteessa http://totutotu.users.cs.helsinki.fi/yvp pääsee sisään sovellukseen.
+
+Sovellusta käyttäessä on joko kirjauduttava sisään tai rekisteröidyttävä. 
+
+Kirjautua sisään voit käyttäjätunnuksella 'Adonis', salasanalla 'kaljaa', tai 'Tuomo', 'tuomokka', tai 'Adoniina', 'elamaa'. Myös tunnusten luonti onnistuu. 
+
+'Oma profiili' kohdassa voit tutkia omia tietojasi, ja sieltä voit siirtyä profiilin muokkaukseen tai poistaa profiilin ja siihen liittyvän käyttäjätunnuksen (poisto tapahtuu heti nappia painamalla, joten varovarovasti).  Viite myös postilaatikkoon
+
+'Postilaatikko' listaa sinulle lähetetyt kaikki viestit, ja viestin aihetta klikkaamalla pääsee tutkimaan itse viestiä.
+
+'Omat yhteisöt' kohdassa listataan yhteisöt, jossa käyttäjä on ylläpitäjänä. (ei toimi)
+
+'Yhteisöt' kohdassa pääset selaamaan kaikkia yhteisöjä. (Yhteisöihin liittyminen ei ole toiminnassa toistaiseksi)
+
+'Jäsenet' kohdassa voit selata muita jäseniä ja siirtyä heidän profiileihinsa
+
+'Uusi viesti' (ei toimi) ja 'Uusi yhteisö', lähetä uusi viesti tai luo uusi yhteisö.
